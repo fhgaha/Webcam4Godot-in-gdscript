@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://b355npq0wcuv3"]
+
+[ext_resource type="Script" path="res://scripts/godot_tcp_server.gd" id="1_oyt4l"]
+
+[sub_resource type="Gradient" id="Gradient_eavda"]
+offsets = PackedFloat32Array(0.00769231)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ixyh1"]
+gradient = SubResource("Gradient_eavda")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 359.0
+offset_top = 26.0
+offset_right = -359.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ixyh1")
+stretch_mode = 5
+
+[node name="Server" type="Node" parent="." node_paths=PackedStringArray("_liveFeed")]
+script = ExtResource("1_oyt4l")
+_liveFeed = NodePath("../TextureRect")
